@@ -91,7 +91,7 @@ def videoDetector():
     # read video
     # def generate_frame():
     camera = cv2.VideoCapture(0)
-    # camera = cv2.VideoCapture('sample.mp4')
+    # camera = cv2.VideoCapture('test.mp4')
 
     # img = cv2.imread('sample.jpg')
     while True:
