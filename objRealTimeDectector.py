@@ -83,15 +83,15 @@ import numpy as np
 
 def videoDetector():
     # dnn net read yolo and coco name
-    net = cv2.dnn.readNet("./YOLO/yolov3.weights", "./YOLO/yolov3.cfg")
+    net = cv2.dnn.readNet("./YOLO/yolov3_custom_last.weights", "./YOLO/yolov3_custom.cfg")
     # classes name
     classes = []
-    with open("coco.names", "r") as f:
+    with open("classes.names", "r") as f:
         classes = f.read().splitlines()
     # read video
     # def generate_frame():
-    camera = cv2.VideoCapture(0)
-    # camera = cv2.VideoCapture('test.mp4')
+    # camera = cv2.VideoCapture(0)
+    camera = cv2.VideoCapture('test.mp4')
 
     # img = cv2.imread('sample.jpg')
     while True:
@@ -136,17 +136,18 @@ def videoDetector():
                         boxes.append([x, y, w, h])
                         confidences.append(float(confidence))
                         class_ids.append(class_id)
-            indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
+            indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.5, 0.1)
             font = cv2.FONT_HERSHEY_PLAIN
             colors = np.random.uniform(0, 255, size=(len(classes), 3))
-            for i in indexes.flatten():
-                x, y, w, h = boxes[i]
-                label = str(classes[class_ids[i]])
-                confidence = str(round(confidences[i], 2))
-                color = colors[class_ids[i]]
-                cv2.rectangle(img, (x, y), (x + w, y + h), color, 2)
-                cv2.putText(img, label + " " + confidence,
-                            (x, y + 20), font, 1, (0, 0, 0), 2)
+            if len(indexes) > 0:
+                for i in indexes.flatten():
+                    x, y, w, h = boxes[i]
+                    label = str(classes[class_ids[i]])
+                    confidence = str(round(confidences[i], 2))
+                    color = colors[class_ids[i]]
+                    cv2.rectangle(img, (x, y), (x + w, y + h), color, 2)
+                    cv2.putText(img, label + " " + confidence,
+                                (x, y + 20), font, 1, (0, 0, 0), 2)
                 # read the camera frame
             # show image
             # cv2.imshow('Image',img)
@@ -158,4 +159,3 @@ def videoDetector():
 
     camera.release()
     cv2.destroyAllWindows()
-# >>>>>>> 9c6d4a331b478291cf2f1ce9e14e47a0374b3733
