@@ -1,36 +1,46 @@
 <title> Live Data</title>
-<link rel="stylesheet" href="http://youtube.local/assets/dcode.css">
-<link rel="shortcut icon" href="http://youtube.local/assets/favicon.ico">
-<script>
+<!-- <link rel="stylesheet" href="http://youtube.local/assets/dcode.css"> -->
+<!-- <link rel="shortcut icon" href="http://youtube.local/assets/favicon.ico"> -->
 
-    function startLiveUpdate(){
-        const textViewCount = document.getElementById('viewCount');
-
-        setInterval(function (){
-
-            fetch('viewcount.php').then(function(response){
-                return response.json();
-            }).then(function (data) {
-                textViewCount.textContent = data.viewCount;
-            }).catch(function(error) {
-                console.log(error);
-            });
-        },1000);
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        startLiveUpdate();
-    });
-
-</script>
-
-
-<body>
+<body >
     <h1> Live Data</h1>
-
-    <p>
+    <p id="textViewCount"></p>
+    <!-- <p>
         View Count: <strong id="viewCount">0</strong>
-    </p>
+    </p> -->
 
-   
+    <script>
+
+        // function startLiveUpdate(){
+        //     const textViewCount = document.getElementById('viewCount');
+    
+        //     setInterval(function (){
+                //fetch() API doesn't support URL scheme "file"
+        //         fetch('viewcount.php').then(function(response){
+        //             return response.json();
+        //         }).then(function (data) {
+        //             textViewCount.textContent = data.viewCount;
+        //         }).catch(function(error) {
+        //             console.log(error);
+        //         });
+        //     },1000);
+        // }
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     startLiveUpdate();
+        // });
+
+        //the code below is working
+        //the following code will increase the view count by 1 every second
+        var count = 0;
+        const countSample = document.getElementById('textViewCount');
+        function test(){
+            count++;
+            countSample.innerHTML = count;
+            // setInterval(test,1000);
+        }
+        window.onload = function(){
+            setInterval(test,1000); 
+        }
+    </script>
 </body>
+
