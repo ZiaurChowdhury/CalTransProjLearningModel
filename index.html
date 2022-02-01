@@ -1,241 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"
-    <title>Framework</title>
-</head>
+<title> Live Data</title>
+<link rel="stylesheet" href="http://youtube.local/assets/dcode.css">
+<link rel="shortcut icon" href="http://youtube.local/assets/favicon.ico">
+<script>
+
+    function startLiveUpdate(){
+        const textViewCount = document.getElementById('viewCount');
+
+        setInterval(function (){
+
+            fetch('viewcount.php').then(function(response){
+                return response.json();
+            }).then(function (data) {
+                textViewCount.textContent = data.viewCount;
+            }).catch(function(error) {
+                console.log(error);
+            });
+        },1000);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        startLiveUpdate();
+    });
+
+</script>
+
+
 <body>
-    <div class="nav-container">
-        <nav class="navbar">
-            <h1 id="navbar-logo">CalTrans</h1>
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="nav-menu">
-                
-                <li><a href="#" class="nav-links nav-links-btn">About</a></li>
-                <li><a href="#" class="nav-links">Real time</a></li>
-                <li><a href="#" class="nav-links">Data</a></li>
-                <li><a href="#" class="nav-links">Statistic</a></li>
-                <li><a href="#" class="nav-links nav-links-btn">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
+    <h1> Live Data</h1>
 
-    <div class="main">
-        <div class="main-container">
-            <div class="main-content">
-                <h1>3D Object Detection with LiDAR cloud point and camera</h1>
-                <p>To detect and classify the vehicle type and monitor the traffic flow of highway in Southern California, through the LiDAR camera and bird-view camera. Apply to robotic applications and AI-driving</p>
-                <button class="main-btn"><a href="#">Welcome</a></button>
-            </div>
-            <div class="main-img-container">
-                <img src="images/point cloud.svg" alt="" id="main-image">
-            </div>
-        </div>
-    </div>
+    <p>
+        View Count: <strong id="viewCount">0</strong>
+    </p>
 
-    <!-- image gallery and text -->
-    <!-- first section -->
-    
-    <div class="services-section">
-        <div class="services-heading">
-            <h1>About</h1>
-        </div>
-
-        <div class="services">
-            <div class="services-cell">
-                <img src="images/light gray.jpg" alt="" class="services-cell_img">
-                <div class="services-cell_text">
-                    Data Base
-                    <p style='font-size:xx-small;'>Labeling data, design database, Design ERD diagram for database that including vehicle and  detection zone information, calculate the vehicle speed based on 3D LiDAR point cloud data</p>
-
-                </div>
-                     
-            </div>
-
-            <div class="services-cell">
-                <img src="images/light gray.jpg" alt="" class="services-cell_img">
-                <div class="services-cell_text">
-                    Machine Learning
-                    <p style="font-size: xx-small;">Training model to predict an object,Accepting the data, Grouping the data,Filtering out unnecessary data, Classifying Data into descriptive shapes for object recognition</p>
-                </div>
-            </div>
-
-            <div class="services-cell">
-                <img src="images/light gray.jpg" alt="" class="services-cell_img">
-                <div class="services-cell_text">
-                    Camera Setup
-                    <p style="font-size: xx-small;">Set up the camera on a car to collect data, participate design part for LiDAR and set up 2D camera top of LiDAR Casing.</p>
-                </div>
-            </div>
-
-            <div class="services-cell">
-                <img src="images/light gray.jpg" alt="" class="services-cell_img">
-                <div class="services-cell_text">
-                    Front end
-                    <p style="font-size: xx-small;">Design GUI and generate the website</p>
-                </div>
-            </div>
-
-            <div class="services-cell">
-                <img src="images/light gray.jpg" alt="" class="services-cell_img">
-                <div class="services-cell_text">
-                    Back end
-                    <p style='font-size:xx-small;'>Connect database and ML model,frontend, retrieve data, Integrating CSS\HTML\Javascript to Flask, integrate machine learning model to Flask.</p>
-                </div>
-            </div>
-
-            <div class="services-cell">
-                <img src="images/light gray.jpg" alt="" class="services-cell_img">
-                <div class="services-cell_text">
-                    Real Time Traffic Flow
-                    <p style="font-size: xx-small;">system can input rapidly changing data and then provide output instantaneously</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <!-- real time -->
-
-
-    <div class="services-section-1">
-        <div class="services-heading-1">
-            <h1>Real Time</h1>
-            <br>
-            <hr>
-                <img src = "images/realtime-example.jpg" width = "850" height ="650">
-            <hr>
-        </div>
-    </div>
-
-    <!-- Statistic -->
-    <div class="services-section-2">
-        <div class="services-heading-2">
-            <h1>Statistic</h1>
-        </div>
-
-        <div class="services">
-            <div class="services-cell">
-                <img src="images/light gray.jpg" alt="" class="services-cell_img">
-                <div class="services-cell_text">Per Day</div>
-            </div>
-
-            <div class="services-cell">
-                <img src="images/light gray.jpg" alt="" class="services-cell_img">
-                <div class="services-cell_text">Per Lane</div>
-            </div>
-
-            <div class="services-cell">
-                <img src="images/light gray.jpg" alt="" class="services-cell_img">
-                <div class="services-cell_text">Peak Hour</div>
-            </div>
-
-            <div class="services-cell">
-                <img src="images/light gray.jpg" alt="" class="services-cell_img">
-                <div class="services-cell_text">Non-peak Hour</div>
-            </div>
-
-            <div class="services-cell">
-                <img src="images/light gray.jpg" alt="" class="services-cell_img">
-                <div class="services-cell_text">Speed</div>
-            </div>
-
-            <div class="services-cell">
-                <img src="images/light gray.jpg" alt="" class="services-cell_img">
-                <div class="services-cell_text">Volume</div>
-            </div>
-        </div>
-    </div>
-
-
-<!-- team -->
-
-<div class="services-section-2">
-    <div class="services-heading-2">
-        <h1>Team Member</h1>
-    </div>
-
-    <div class="services">
-        <div class="services-cell">
-            <img src="images/light gray.jpg" alt="" class="services-cell_img">
-            <div class="services-cell_text">Ruitao Wu</div>
-        </div>
-
-        <div class="services-cell">
-            <img src="images/light gray.jpg" alt="" class="services-cell_img">
-            <div class="services-cell_text">Ziaur Chowdhury</div>
-        </div>
-
-        <div class="services-cell">
-            <img src="images/light gray.jpg" alt="" class="services-cell_img">
-            <div class="services-cell_text">Gustavo Velasquez</div>
-        </div>
-
-        <div class="services-cell">
-            <img src="images/light gray.jpg" alt="" class="services-cell_img">
-            <div class="services-cell_text">Xin Gao</div>
-        </div>
-
-        <div class="services-cell">
-            <img src="images/light gray.jpg" alt="" class="services-cell_img">
-            <div class="services-cell_text">Cesar Villa</div>
-        </div>
-
-        <!-- <div class="services-cell">
-            <img src="images/light gray.jpg" alt="" class="services-cell_img">
-            <div class="services-cell_text">name</div>
-        </div> -->
-    </div>
-</div>
-
-
-
-<div class="footer-container">
-    <div class="footer">
-        <div class="footer-heading footer-1">
-            <h2>About Us</h2>
-            <a href="#">Blog</a>
-            <a href="#">Demo</a>
-            <a href="#">Customers</a>
-            <a href="#">Investor</a>
-            <a href="#">Terms and services</a>
-        </div>
-        <div class="footer-heading footer-2">
-            <h2>Contact Us</h2>
-            <a href="#">Jobs</a>
-            <a href="#">Support</a>
-            <a href="#">Contact</a>
-        </div>
-        <div class="footer-heading footer-3">
-            <h2>Social Media</h2>
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">Youtube</a>
-            <a href="#">Twitter</a>
-        </div>
-        <div class="footer-email-form">
-            <h2>Join our  newsletter!</h2>
-            <input type="email" placeholder="Please enter you email address" id="footer-email">
-            <input type="submit" value="Sign up" id="footer-email-btn">
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-    <script src="app.js"></script>
+   
 </body>
-</html>
