@@ -21,26 +21,45 @@ Clone the repository:
 ---  
 Working Tree update  
 ```  
-C:.  
 │   .gitignore  
 │   app.py  
+│   classes.names  
 │   coco.names  
+│   config.ini  
+│   config.py  
+│   driver_for_videodetector.py  
+│   framemaker.py  
+│   GOPR0787.MP4  
 │   model.py  
 │   objRealTimeDectector.py  
 │   README.MD  
-│
+│   test.mp4  
+│   vehicle.names  
+│   videodetector.py  
+│   yolo.ipynb  
+│  
 ├───data  
 │       test.csv  
-│
+│  
+├───dumps  
+│       server.sql  
+│  
+├───static  
+│       home.js  
+│       styles.css  
+│  
 ├───templates  
 │       index.html  
-│
+│  
 ├───YOLO  
 │       savayolo  
 │       yolov3.cfg  
 │       yolov3.weights  
-│
+│       yolov3_custom.cfg  
+│       yolov3_custom_last.weights  
+│  
 └───__pycache__  
+        config.cpython-39.pyc  
         model.cpython-39.pyc  
         objRealTimeDectector.cpython-39.pyc  
 ```  
