@@ -2,6 +2,6 @@ $(function() {
    $('.button').click(clickedButton);
   })
 
-  function clickedButton{
-      
+  function clickedButton(){
+
   }
