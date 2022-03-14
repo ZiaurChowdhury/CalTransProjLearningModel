@@ -1,7 +1,7 @@
 ssd-ream-time.py
 model.py
-*.mp4
-__pycache__/
 yolov3.weights
 yolov3.cfg
 coco.names
+__pycache__/
+*.pyc
