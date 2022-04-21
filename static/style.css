@@ -13,7 +13,15 @@ html{
     margin: 0;
     padding: 0;
 }
-
+#map {
+    height: 500px;
+    width:100%;
+    border:0px solid #ccc;
+    padding:10px;
+    }
+.InfoWindow{
+      height: 100px;
+    }
 .section{
     width:100%;
     height:300vh;
