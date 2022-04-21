@@ -63,6 +63,7 @@ def index():
 def video_feed():
     #returning the video feed
     return Response(obj.videoDetector(),mimetype="multipart/x-mixed-replace; boundary=frame")
+
 @socketio.on('connect', namespace='/test')
 def test_connect():
     global thread
