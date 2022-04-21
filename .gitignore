@@ -5,4 +5,3 @@ yolov3.cfg
 coco.names
 __pycache__/
 *.pyc
-*.mp4
