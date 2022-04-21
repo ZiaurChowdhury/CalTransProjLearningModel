@@ -1,10 +1,9 @@
+var myChart = echarts.init(document.getElementById('main'));
+var myChart2 = echarts.init(document.getElementById('main2'));
+var myChart3 = echarts.init(document.getElementById('main3'));
+var myChart4 = echarts.init(document.getElementById('main4'));
 
-    var myChart = echarts.init(document.getElementById('main'));
-    var myChart2 = echarts.init(document.getElementById('main2'));
-    var myChart3 = echarts.init(document.getElementById('main3'));
-    var myChart4 = echarts.init(document.getElementById('main4'));
-
-    myChart.setOption({
+myChart.setOption({
 
         title: {
             text: 'Numbers'
@@ -47,7 +46,7 @@
         }
         ]
     });
-    myChart2.setOption({
+myChart2.setOption({
 
         title: {
             text: 'Classification'
@@ -86,7 +85,7 @@
 
     }
     );
-    myChart3.setOption({
+myChart3.setOption({
 
         title: {
             text: 'Density'
@@ -129,7 +128,7 @@
         }
         ]
     });
-    myChart4.setOption({
+myChart4.setOption({
 
         title: {
             text: 'Speed'
@@ -172,23 +171,11 @@
         }
         ]
     });
-        var time = ["","","","","","","","","",""],
-        truck = [0,0,0,0,0,0,0,0,0,0]
-        vehicle = [0,0,0,0,0,0,0,0,0,0]
-
-        var time2 = ["","","","","",""],
-        truck2 = [0,0,0,0,0,0]
-        vehicle2 = [0,0,0,0,0,0]
-
-        var time3 = ["","","","","",""],
-        truck3 = [0,0,0,0,0,0]
-        vehicle3 = [0,0,0,0,0,0]
-
-        var time4 = ["","","","","",""],
-        truck4 = [0,0,0,0,0,0]
-        vehicle4 = [0,0,0,0,0,0]
-    //准备好统一的 callback 函数
-    var update_mychart = function (res) {
+var time = ["","","","","","","","","",""],truck = [0,0,0,0,0,0,0,0,0,0],vehicle = [0,0,0,0,0,0,0,0,0,0]
+var time2 = ["","","","","",""],truck2 = [0,0,0,0,0,0],vehicle2 = [0,0,0,0,0,0]
+var time3 = ["","","","","",""],truck3 = [0,0,0,0,0,0],vehicle3 = [0,0,0,0,0,0]
+var time4 = ["","","","","",""],truck4 = [0,0,0,0,0,0],vehicle4 = [0,0,0,0,0,0]
+var update_mychart = function (res) {
     //res是json格式的response对象
         // 隐藏加载动画
         myChart.hideLoading();
@@ -314,24 +301,18 @@
 
 
         };
+myChart.showLoading();
+myChart2.showLoading();
+myChart3.showLoading();
+myChart4.showLoading();
+$(document).ready(function() {
+    namespace = '/test';
+    var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
 
-    // 首次显示加载动画
-    myChart.showLoading();
-    myChart2.showLoading();
-    myChart3.showLoading();
-    myChart4.showLoading();
-
-
-    // 建立socket连接，等待服务器“推送”数据，用回调函数更新图表
-    $(document).ready(function() {
-        namespace = '/test';
-        var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
-
-        socket.on('server_response', function(res) {
-            console.log(res.data)
-            console.log(typeof(res.data))
-            const result=JSON.parse(res.data);
-            update_mychart(result);
-        });
-
+    socket.on('server_response', function(res) {
+        console.log(res.data);
+        console.log(typeof(res.data));
+        const result=JSON.parse(res.data);
+        update_mychart(result);
     });
+});
