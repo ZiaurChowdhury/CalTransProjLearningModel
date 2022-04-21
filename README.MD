@@ -21,18 +21,64 @@ Clone the repository:
 ---  
 Working Tree update  
 ```  
-C:.  
-│   .gitignore  
-│   app.py  
-│   coco.names  
-│   model.py  
-│   objRealTimeDectector.py  
-│   README.MD  
-│   sample.MP4  
-│   ssd-ream-time.py  
-│   yolov3.cfg  
-│   yolov3.weights  
+C:.
+│   .gitignore
+│   app.py
+│   coco.names
+│   config.ini
+│   config.py
+│   framemaker.py
+│   GOPR0787.MP4
+│   index.html
+│   json_load.py
+│   objRealTimeDectector.py
+│   README.MD
+│   result.json
+│   test.mp4
+│   viewcount.php
+│   websocketdemo2.py
+│   yolo.ipynb
 │
-├───templates  
-│       index.html  
+├───data
+│       test.csv
+│
+├───dumps
+│       server.sql
+│
+├───static
+│   │   app.js
+│   │   chart.js
+│   │   content.css
+│   │   echarts.min.js
+│   │   gallery.css
+│   │   home.js
+│   │   jQuery_mini.js
+│   │   map.js
+│   │   socket.io.min.js
+│   │   socket.io.min.js.map
+│   │   style.css
+│   │   styles.css
+│   │
+│   └───images
+│           .DS_Store
+│           light gray.jpg
+│           pic1.svg
+│           point cloud.jpg
+│           point cloud.svg
+│           realtime-example.jpg
+│
+├───templates
+│       index.html
+│       websocketdemo2.html
+│
+├───YOLO
+│       Readme
+│       savayolo
+│       yolov3.cfg
+│       yolov3.weights
+│
+└───__pycache__
+        config.cpython-39.pyc
+        model.cpython-39.pyc
+        objRealTimeDectector.cpython-39.pyc 
 ```  
