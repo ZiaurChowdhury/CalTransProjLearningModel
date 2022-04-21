@@ -9,7 +9,7 @@ Dowload the following files:
 1. [yolov3 weights](https://pjreddie.com/media/files/yolov3.weights)  
 2. [yolov3.cfg](https://github.com/pjreddie/darknet/blob/master/cfg/yolov3.cfg?raw=true)  
 3. [coco.names](https://github.com/pjreddie/darknet/blob/master/data/coco.names)  
-Place the yolov3.weights and yolov3.cfg in 'YOLO' folder, and coco.names in the same folder as the python script  
+Place the yolov3.weights, yolov3.cfg, and coco.names in the same folder as the python script  
 Install run the following command:  
 `pip install flask`  
 `pip install opencv-python`  
@@ -28,19 +28,11 @@ C:.
 │   model.py  
 │   objRealTimeDectector.py  
 │   README.MD  
-│
-├───data  
-│       test.csv  
+│   sample.MP4  
+│   ssd-ream-time.py  
+│   yolov3.cfg  
+│   yolov3.weights  
 │
 ├───templates  
 │       index.html  
-│
-├───YOLO  
-│       savayolo  
-│       yolov3.cfg  
-│       yolov3.weights  
-│
-└───__pycache__  
-        model.cpython-39.pyc  
-        objRealTimeDectector.cpython-39.pyc  
 ```  
