@@ -54,6 +54,15 @@ def background_thread():
                       {'data': res, 'count': count},
                       namespace='/test')
 
+'''
+
+couldn't read json file from js file
+may be thinking about using flask-googlemaps extention to create a map
+https://pypi.org/project/flask-googlemaps/
+
+GitHub:
+https://github.com/flask-extensions/Flask-GoogleMaps
+'''
 
 @app.route("/")
 def index():
