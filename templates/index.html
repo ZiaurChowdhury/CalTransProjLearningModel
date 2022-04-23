@@ -7,6 +7,7 @@
     <script type="text/javascript" src="/static/jQuery_mini.js"></script>
     <script type="text/javascript" src="/static/socket.io.min.js"></script>
     <script type="text/javascript" src="/static/echarts.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxWcdEjZr5cfH3wQ1cUd-t8hp5xfkpHh0&callback=initMap"></script> -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
@@ -15,13 +16,14 @@
     <link rel="stylesheet" href="/static/content.css">
     <link rel="stylesheet" href="/static/gallery.css">
     <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/footer.css">
     <title>AI-Vehicle Classfier</title>
 </head>
 <body>
     <div class="nav-container">
         <a id="Dashboard" class="nav-links nav-links-btn">Dashboard</a>
         <nav class="navbar">
-            <h1 id="navbar-logo">AI-Vede</h1>
+            <h1 style="font-family:monospace;" id="navbar-logo">AI-Vede</h1>
             <div class="menu-toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -29,10 +31,11 @@
             </div>
             <ul class="nav-menu">
 
-                <li><a href="#About" class="nav-links nav-links-btn">About</a></li>
-                <li><a href="#Real Time" class="nav-links">Real time</a></li>
+                <li><a href="#About" class="nav-links nav-links-btn">Technology</a></li>
+                <li><a href="#RealTime" class="nav-links">Real Time Video</a></li>
                 <li><a href="#Team Member" class="nav-links">Team</a></li>
-                <li><a href="#Contact" class="nav-links nav-links-btn">Contact</a></li>
+                <li><a href="#gmap" class="nav-links nav-links-btn">Google Map</a></li>
+                <li><a href="#statchart"  class="nav-links nav-links-btn">Statistic</a></li>
             </ul>
         </nav>
     </div>
@@ -52,13 +55,40 @@
 
     <div class="services-section">
         <div class="services-heading">
-            <h1 id="Real Time">Real Time Video</h1>
+            <h1 id="RealTime">Real Time Video</h1>
         </div>
         <img src="{{url_for('video_feed')}}" width="1000px" height="500px" alt="Real-Time Camera video">
     </div>
     <!-- start of About page  -->
 
-        <div class="services-section">
+        
+
+
+    <!-- end of About page  -->
+
+    <!-- start of team -->
+
+   
+    <div class="services-section">
+        <a href="#Dashboard" class="nav-links nav-links-btn">Dashboard</a>
+        <div class="services-heading">
+            <h1 id="gmap">Map</h1>
+        </div>
+        <div id="map">
+        </div>
+    </div>
+    <div class="statCharts">
+        <div class="statCharts-heading">
+            <h1 id="statchart">Statistic Charts</h1>
+        </div>
+        
+        <div id="main" style="height:450px;width:600px;border:0px solid #ccc;padding:10px; float: left; position: relative;" ></div>
+        <div id="main2" style="height:450px;width:600px;border:0px solid #ccc;padding:10px; float: right; position: relative;" ></div>
+        <div id="main3" style="height:450px;width:600px;border:0px solid #ccc;padding:10px; float: left; position: relative;"></div>
+        <div id="main4" style="height:450px;width:600px;border:0px solid #ccc;padding:10px; float: right; position: relative;"></div>
+    </div>
+
+    <div class="services-section">
         <a href="#Dashboard" class="nav-links nav-links-btn">Dashboard</a>
         <div class="services-heading">
             <h1 id="About">About</h1>
@@ -117,79 +147,147 @@
                 </div>
             </div>
         </div>
-    </div>
-
-
-    <!-- end of About page  -->
-
-    <!-- start of team -->
-
+    </div> 
+    <!-- end of about -->
     <div class="services-section-2">
-    <a href="#Dashboard" class="nav-links nav-links-btn">Dashboard</a>
-    <div class="services-heading-2">
-        <h1 id="Team Member">Team Member</h1>
-    </div>
-
-    <div class="services">
-        <div class="services-cell">
-            <img src="/static/images/light gray.jpg" alt="" class="services-cell_img">
-            <div class="services-cell_text">Xudong Jia</div>
-        </div>
-
-        <div class="services-cell">
-            <img src="/static/images/light gray.jpg" alt="" class="services-cell_img">
-            <div class="services-cell_text">Bingbing Li</div>
-        </div>
-
-        <div class="services-cell">
-            <img src="/static/images/light gray.jpg" alt="" class="services-cell_img">
-            <div class="services-cell_text">Xunfei Jiang</div>
-        </div>
-
-        <div class="services-cell">
-            <img src="/static/images/light gray.jpg" alt="" class="services-cell_img">
-            <div class="services-cell_text">Tongzi Wu</div>
-        </div>
-
-        <div class="services-cell">
-            <img src="/static/images/light gray.jpg" alt="" class="services-cell_img">
-            <div class="services-cell_text">Chen Li</div>
-        </div>
-
-
-        <div class="services-cell">
-            <img src="/static/images/light gray.jpg" alt="" class="services-cell_img">
-            <div class="services-cell_text">Senior Design Team</div>
-        </div>
-        
-    </div>
-
-    <div class="services-section">
         <a href="#Dashboard" class="nav-links nav-links-btn">Dashboard</a>
-        <div class="services-heading">
-            <h1 id="Real Time">Map</h1>
+        <div class="services-heading-2">
+            <h1 id="Team Member">Team Member</h1>
         </div>
-        <div id="map">
-        </div>
-    </div>
-    <div class="statCharts">
-        <div class="statCharts-heading">
-            <h1>Statistic Charts</h1>
-        </div>
-        
-        <div id="main" style="height:450px;width:600px;border:0px solid #ccc;padding:10px; float: left; position: relative;" ></div>
-        <div id="main2" style="height:450px;width:600px;border:0px solid #ccc;padding:10px; float: right; position: relative;" ></div>
-        <div id="main3" style="height:450px;width:600px;border:0px solid #ccc;padding:10px; float: left; position: relative;"></div>
-        <div id="main4" style="height:450px;width:600px;border:0px solid #ccc;padding:10px; float: right; position: relative;"></div>
-    </div>
-
     
+        <div class="services">
+            <div class="services-cell">
+                <img src="/static/images/light gray.jpg" alt="" class="services-cell_img">
+                <div class="services-cell_text">Xudong Jia</div>
+            </div>
+    
+            <div class="services-cell">
+                <img src="/static/images/light gray.jpg" alt="" class="services-cell_img">
+                <div class="services-cell_text">Bingbing Li</div>
+            </div>
+    
+            <div class="services-cell">
+                <img src="/static/images/light gray.jpg" alt="" class="services-cell_img">
+                <div class="services-cell_text">Xunfei Jiang</div>
+            </div>
+    
+            <div class="services-cell">
+                <img src="/static/images/light gray.jpg" alt="" class="services-cell_img">
+                <div class="services-cell_text">Tongzi Wu</div>
+            </div>
+    
+            <div class="services-cell">
+                <img src="/static/images/light gray.jpg" alt="" class="services-cell_img">
+                <div class="services-cell_text">Chen Li</div>
+            </div>
+    
+    
+            <div class="services-cell">
+                <img src="/static/images/light gray.jpg" alt="" class="services-cell_img">
+                <div class="services-cell_text">Senior Design Team</div>
+            </div>
+            
+        </div>
+        <!-- end of team -->
+    </div>
     <!-- script type="text/javascript" -->
     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxWcdEjZr5cfH3wQ1cUd-t8hp5xfkpHh0&callback=initMap"></script>
     <script src="/static/map.js"></script>
     <script src="/static/chart.js"></script>
     <script src="/static/app.js"></script>
 
+
+    <!-- footer -->
+    <div class="footer-container">
+        <footer class="footer">
+            <div class="footer__addr">
+              <img class="footlogo" src="/static/images/CSUN_Seal.png" alt="csun seals">
+              <img src="/static/images/CSU_Northridge_logo.svg" alt="">
+              <h2>Contact</h2>
+              
+              <address>
+                18111 Nordhoff Street, Northridge, CA 91330<br>
+                    
+                <a class="footer__btn" href="https://www.csun.edu" target="blank" >Contact Us</a>
+              </address>
+            </div>
+            
+            <ul class="footer__nav">
+              <li class="nav__item">
+                <h2 class="nav__title">Media</h2>
+          
+                <ul class="nav__ul">
+                  <li class="fa fa-youtube fa">
+                    <a href="https://www.youtube.com/user/CalStateNorthridge" target="blank">Youtube</a>
+                  </li>
+          
+                  <li class="fa fa-facebook fa">
+                    <a href="https://www.facebook.com/calstatenorthridge" target="blank">Facebook</a>
+                  </li>
+                  <li class="fa fa-instagram fa">
+                    <a href="https://www.instagram.com/csun_edu/" target="blank">Instagram</a>
+                  </li>
+                  <li class="fa fa-twitter fa">
+                    <a href="https://twitter.com/csunorthridge" target="blank">Twitter</a>
+                  </li>
+                </ul>
+              </li>
+              
+              <li class="nav__item nav__item--extra">
+                <h2 class="nav__title">Inside CSUN</h2>
+                
+                <ul class="nav__ul nav__ul--extra">
+                  <li>
+                    <a href="https://www.885fm.org/" target="blank">88.5 FM</a>
+                  </li>
+                  
+                  <li>
+                    <a href="https://www.thesoraya.org/" target="blank">The Soraya</a>
+                  </li>
+                  
+                  <li>
+                    <a href="https://www.csun.edu/foundation/" target="blank">Foundation</a>
+                  </li>
+                  
+                  <li>
+                    <a href="https://sundial.csun.edu/" target="blank">Sundial</a>
+                  </li>
+                  
+                  <li>
+                    <a href="https://www.csun.edu/calendar/" target="blank">Event</a>
+                  </li>
+                  
+                  <li>
+                    <a href="https://www.csun.edu/alumni" target="blank">Alumni</a>
+                  </li>
+                </ul>
+              </li>
+              
+              <li class="nav__item">
+                <h2 class="nav__title">Legal</h2>
+                
+                <ul class="nav__ul">
+                  <li>
+                    <a href="https://www.csun.edu/it/privacy" target="blank">Privacy Policy</a>
+                  </li>
+                  
+                  <li>
+                    <a href="https://www.csun.edu/sites/default/files/900-12.pdf" target="blank">Terms of Use</a>
+                  </li>
+                  
+                  <li>
+                    <a href="https://www.csun.edu/it/document-viewers" target="blank">Document Viewers</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            
+            <div class="legal">
+              <p>Copyright &copy; California State University, Northridge.</p>
+            </div>
+          </footer>
+    </div>
+    
   </body>
 
 </html>
